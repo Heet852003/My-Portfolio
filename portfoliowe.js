@@ -24,13 +24,22 @@ const revealSection = function (entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
-entry.target.classList.add('fade-in');
-observer.unobserve(entry.target);
+  entry.target.classList.add('fade-in');
+  observer.unobserve(entry.target);
 };
+
 const sectionObserver = new IntersectionObserver(revealSection, {
-root: null,
-threshold: 0.15,
+  root: null,
+  threshold: 0.15,
 });
+
 revealSections.forEach(function (section) {
-sectionObserver.observe(section);
+  sectionObserver.observe(section);
+});
+
+// Change cursor style on hover
+const hoverElements = document.querySelectorAll('a, button, .project, .experience, .volunteering');
+
+hoverElements.forEach(element => {
+  element.style.cursor = 'pointer';
 });
