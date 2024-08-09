@@ -210,3 +210,20 @@ footer {
     margin-bottom: 20px;
   }
 }
+
+/* Publications section styles */
+.publication {
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.publication p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
