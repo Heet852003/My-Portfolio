@@ -37,7 +37,7 @@ revealSections.forEach(function (section) {
   sectionObserver.observe(section);
 });
 
-// Change cursor style on hover
+// Change cursor style on hover (removed custom cursor logic)
 const hoverElements = document.querySelectorAll('a, button, .project, .experience, .volunteering');
 
 hoverElements.forEach(element => {
