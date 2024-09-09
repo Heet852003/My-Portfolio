@@ -9,9 +9,9 @@
 body {
   font-family: 'Orbitron', sans-serif;
   line-height: 1.6;
-  color: #fff;
-  background-color: #4288bd;
-  cursor: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2248%22 height%3D%2248%22 viewBox%3D%220 0 24 24%22%3E%3Cpath fill%3D%22%23FFF%22 stroke%3D%22%23000%22 stroke-width%3D%222%22 stroke-linejoin%3D%22round%22 d%3D%22M15 3H8L4 14h6l-3 8 13-12h-7.5L15 3z%22%3E%3C/path%3E%3C/svg%3E'), auto;
+  color: #333;
+  background: linear-gradient(135deg, #f3f4f6, #dfe3e8);
+  cursor: auto;
 }
 
 .container {
@@ -22,7 +22,7 @@ body {
 
 /* Header styles */
 header {
-  background-color: #2a475e;
+  background-color: #3a506b;
   color: #fff;
   padding: 20px;
   position: fixed;
@@ -46,7 +46,7 @@ nav {
 }
 
 .logo a:hover {
-  color: #00b7ff;
+  color: #ffad60;
 }
 
 .nav-links {
@@ -65,7 +65,7 @@ nav {
 }
 
 .nav-links li a:hover {
-  color: #00b7ff;
+  color: #ffad60;
   transform: scale(1.1);
 }
 
@@ -90,7 +90,7 @@ nav {
 .section h2 {
   text-align: center;
   margin-bottom: 40px;
-  color: #00b7ff;
+  color: #3a506b;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -105,8 +105,8 @@ nav {
 .project:hover,
 .experience:hover,
 .volunteering:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* About section styles */
@@ -137,11 +137,13 @@ nav {
   max-width: 100%;
   border-radius: 5px;
 }
-.project img{
-max-width: 100%;
+
+.project img {
+  max-width: 100%;
   border-radius: 5px;
-height:150px;
+  height: 150px;
 }
+
 .experience img {
   height: 200px;
 }
@@ -168,12 +170,29 @@ height:150px;
 }
 
 #contact a:hover {
-  color: #00b7ff;
+  color: #ffad60;
+}
+
+/* Button Styles */
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #3a506b;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #ffad60;
+  transform: scale(1.1);
 }
 
 /* Footer styles */
 footer {
-  background-color: #2a475e;
+  background-color: #3a506b;
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -218,12 +237,11 @@ footer {
 }
 
 .publication:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .publication p {
   font-size: 16px;
   line-height: 1.6;
 }
-
