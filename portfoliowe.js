@@ -9,27 +9,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    const start = window.pageYOffset;
-    const distance = offsetPosition - start;
-    const duration = 1000; // Adjust this value to control the speed of the scroll
-    let startTime = null;
-
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = ease(timeElapsed, start, distance, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
-
-    function ease(t, b, c, d) {
-      t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
-      t--;
-      return -c / 2 * (t * (t - 2) - 1) + b;
-    }
-
-    requestAnimationFrame(animation);
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
   });
 });
 
@@ -112,11 +95,12 @@ backToTopButton.addEventListener('click', (e) => {
 const typingEffect = () => {
   const text = "Hello, I'm Heet Mehta";
   const typingElement = document.querySelector('#hero h1');
+  typingElement.textContent = ''; // Clear existing content
   let i = 0;
 
   const typing = setInterval(() => {
     if (i < text.length) {
-      typingElement.innerHTML += text.charAt(i);
+      typingElement.textContent += text.charAt(i);
       i++;
     } else {
       clearInterval(typing);
