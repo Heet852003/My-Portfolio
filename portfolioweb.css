@@ -183,10 +183,11 @@ nav {
 .about-image img {
   max-width: 100%;
   height: auto;
+  max-height: 300px; /* Reduce the maximum height of the image */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensure the image covers the area without distortion */
 }
-
 /* Project styles */
 .project-grid {
   display: grid;
@@ -217,6 +218,11 @@ nav {
   height: 150px;
   object-fit: contain;
   margin-bottom: 15px;
+}
+
+/* Specific style for Flavour Quest logo */
+.project img[src*="flavour_quest_logo.png"] {
+  height: 200px; /* Increase the height of the Flavour Quest logo */
 }
 
 .project ul {
