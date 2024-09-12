@@ -123,21 +123,7 @@ const typingEffect = () => {
     }
   }, 100);
 };
-const typingEffect = () => {
-  const text = "Hello, I'm Heet Mehta";
-  const typingElement = document.querySelector('#hero h1');
-  typingElement.innerHTML = ''; // Clear any existing content
-  let i = 0;
 
-  const typing = setInterval(() => {
-    if (i < text.length) {
-      typingElement.innerHTML += text.charAt(i);
-      i++;
-    } else {
-      clearInterval(typing);
-    }
-  }, 100);
-};
 window.addEventListener('load', typingEffect);
 
 // Parallax effect for floating shapes
