@@ -15,6 +15,29 @@ body {
   overflow-x: hidden;
 }
 
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: #ffd700;
+  transform: scale(1.1);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
