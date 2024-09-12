@@ -89,21 +89,18 @@ hoverElements.forEach(element => {
   });
 });
 
-// Scroll to top button
-const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '&uarr;';
-scrollToTopBtn.classList.add('scroll-to-top');
-document.body.appendChild(scrollToTopBtn);
+// Back to top button
+const backToTopButton = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 300) {
-    scrollToTopBtn.style.display = 'block';
+    backToTopButton.style.display = 'block';
   } else {
-    scrollToTopBtn.style.display = 'none';
+    backToTopButton.style.display = 'none';
   }
 });
 
-scrollToTopBtn.addEventListener('click', () => {
+backToTopButton.addEventListener('click', () => {
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
     if (c > 0) {
