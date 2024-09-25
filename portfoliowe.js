@@ -110,12 +110,4 @@ const typingEffect = () => {
 
 window.addEventListener('load', typingEffect);
 
-// Parallax effect for floating shapes
-window.addEventListener('scroll', () => {
-  const shapes = document.querySelectorAll('.shape');
-  shapes.forEach((shape, index) => {
-    const speed = (index + 1) * 0.2;
-    const yPos = -(window.pageYOffset * speed);
-    shape.style.transform = `translateY(${yPos}px)`;
-  });
-});
+
