@@ -92,6 +92,7 @@ backToTopButton.addEventListener('click', (e) => {
 });
 
 // Typing effect for hero section
+// Typing effect for hero section
 const typingEffect = () => {
   const text = "Hello, I'm Heet Mehta";
   const typingElement = document.querySelector('#hero h1');
