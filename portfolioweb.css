@@ -562,4 +562,5 @@ footer {
   height: 100px;
   object-fit: contain;
   margin-bottom: 15px;
+  border-left: 10px;
 }
