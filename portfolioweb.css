@@ -755,3 +755,10 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
+.education img {
+  width: auto;
+  max-width: 150px;
+  height: 80px;
+  object-fit: contain;
+}
+
