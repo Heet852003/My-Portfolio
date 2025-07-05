@@ -159,6 +159,8 @@ function initHeroAnimations() {
   if (heroTitle) {
     const text = "Hello, I'm Heet Mehta";
     heroTitle.textContent = '';
+    heroTitle.style.opacity = '0';
+    heroTitle.style.transform = 'translateY(30px)';
     let i = 0;
 
     const typeWriter = setInterval(() => {
@@ -167,15 +169,18 @@ function initHeroAnimations() {
         i++;
       } else {
         clearInterval(typeWriter);
-        // Add cursor blink effect
         heroTitle.style.borderRight = '3px solid rgba(255,255,255,0.75)';
         heroTitle.style.animation = 'blink 1s infinite';
+        heroTitle.style.opacity = '1';
+        heroTitle.style.transform = 'translateY(0)';
       }
     }, 100);
   }
 
   // Animate hero subtitle
   if (heroSubtitle) {
+    heroSubtitle.style.opacity = '0';
+    heroSubtitle.style.transform = 'translateY(30px)';
     setTimeout(() => {
       heroSubtitle.style.opacity = '1';
       heroSubtitle.style.transform = 'translateY(0)';
