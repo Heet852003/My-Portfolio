@@ -388,14 +388,14 @@ nav {
 }
 
 /* Modern Card Styles */
-.project-grid, .experience-grid, .volunteering-grid {
+.project-grid, .experience-grid, .volunteering-grid, .education-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
 
-.project, .experience, .volunteering {
+.project, .experience, .volunteering, .education {
   background: var(--secondary-bg);
   border-radius: 20px;
   padding: 30px;
@@ -406,7 +406,7 @@ nav {
   box-shadow: var(--shadow-light);
 }
 
-.project::before, .experience::before, .volunteering::before {
+.project::before, .experience::before, .volunteering::before, .education::before {
   content: '';
   position: absolute;
   top: 0;
@@ -418,23 +418,23 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.project:hover, .experience:hover, .volunteering:hover {
+.project:hover, .experience:hover, .volunteering:hover, .education:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-heavy);
 }
 
-.project:hover::before, .experience:hover::before, .volunteering:hover::before {
+.project:hover::before, .experience:hover::before, .volunteering:hover::before, .education:hover::before {
   transform: scaleX(1);
 }
 
-.project h3, .experience h3, .volunteering h3 {
+.project h3, .experience h3, .volunteering h3, .education h3 {
   color: var(--text-primary);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
-.project img, .experience img, .volunteering img {
+.project img, .experience img, .volunteering img, .education img {
   width: 100%;
   max-width: 200px;
   height: 120px;
@@ -444,16 +444,16 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.project:hover img, .experience:hover img, .volunteering:hover img {
+.project:hover img, .experience:hover img, .volunteering:hover img, .education:hover img {
   transform: scale(1.05);
 }
 
-.project ul, .experience ul, .volunteering ul {
+.project ul, .experience ul, .volunteering ul, .education ul {
   list-style: none;
   padding: 0;
 }
 
-.project li, .experience li, .volunteering li {
+.project li, .experience li, .volunteering li, .education li {
   position: relative;
   padding-left: 25px;
   margin-bottom: 10px;
@@ -461,7 +461,7 @@ nav {
   line-height: 1.6;
 }
 
-.project li::before, .experience li::before, .volunteering li::before {
+.project li::before, .experience li::before, .volunteering li::before, .education li::before {
   content: '→';
   position: absolute;
   left: 0;
@@ -681,7 +681,7 @@ footer {
     gap: 40px;
   }
 
-  .project-grid, .experience-grid, .volunteering-grid {
+  .project-grid, .experience-grid, .volunteering-grid, .education-grid {
     grid-template-columns: 1fr;
   }
 
@@ -715,7 +715,7 @@ footer {
     font-size: 2rem;
   }
 
-  .project, .experience, .volunteering {
+  .project, .experience, .volunteering, .education {
     padding: 20px;
   }
 }

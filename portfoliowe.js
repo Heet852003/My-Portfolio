@@ -93,7 +93,7 @@ function initScrollAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.add('fade-in');
         // Add stagger effect for child elements
-        const children = entry.target.querySelectorAll('.project, .experience, .volunteering, .certifications-list li');
+        const children = entry.target.querySelectorAll('.project, .experience, .volunteering, .education, .certifications-list li');
         children.forEach((child, index) => {
           setTimeout(() => {
             child.style.opacity = '1';
@@ -201,7 +201,7 @@ function initHeroAnimations() {
 
 // Enhanced card animations
 function initCardAnimations() {
-  const cards = document.querySelectorAll('.project, .experience, .volunteering, .certifications-list li');
+  const cards = document.querySelectorAll('.project, .experience, .volunteering, .education, .certifications-list li');
 
   cards.forEach(card => {
     // Initially hide for stagger effect
