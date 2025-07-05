@@ -755,10 +755,12 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
+/* Education logo size tweak */
 .education img {
-  width: auto;
-  max-width: 150px;
   height: 80px;
+  width: auto;
+  max-width: 160px;
+  margin-bottom: 20px;
   object-fit: contain;
 }
 
