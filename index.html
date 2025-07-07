@@ -7,59 +7,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Replace the Poppins font link with JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolioweb.css">
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">
-        <a href="#">Heet Mehta</a>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="#">Heet Mehta</a>
+        </div>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <div class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#volunteering">Volunteering</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
     </nav>
   </header>
 
   <main>
     <section id="hero" class="section fade-in">
-  <div class="hero-container">
-    <div class="container">
-      <h1 class=""></h1>
-      <p class="">Discover my journey through innovative projects, valuable experiences, and continuous growth</p>
-    </div>
-  </div>
-  <div class="animated-background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-</section>
+      <div class="hero-container">
+        <div class="container">
+          <h1></h1>
+          <p>Discover my journey through innovative projects, valuable experiences, and continuous growth</p>
+        </div>
+      </div>
+      <div class="animated-background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </section>
+
     <section id="about" class="section fade-in">
       <div class="container">
         <h2>About Me</h2>
         <div class="about-content">
           <div class="about-text">
-            <p>Hi, I’m Heet Mehta, an incoming MS CS student at NYU Tandon with a B.Tech in IT (CGPA: 9.14) from VIT Vellore. I specialize in software development, data science, and machine learning, with hands-on experience in full-stack web apps, blockchain, and smart contracts. </p>
-            <p> My tech stack includes Python, Java, C++, React.js, Tailwind, Firebase, SQL, and MongoDB. I’m passionate about building impactful, scalable solutions at the intersection of technology and society.</p>
+            <p>Hi, I'm Heet Mehta, an incoming MS CS student at NYU Tandon with a B.Tech in IT (CGPA: 9.14) from VIT Vellore. I specialize in software development, data science, and machine learning, with hands-on experience in full-stack web apps, blockchain, and smart contracts.</p>
+            <p>My tech stack includes Python, Java, C++, React.js, Tailwind, Firebase, SQL, and MongoDB. I'm passionate about building impactful, scalable solutions at the intersection of technology and society.</p>
           </div>
           <div class="about-image">
             <img src="Heet Photo New.jpeg" alt="Heet Mehta">
@@ -206,7 +210,7 @@
       <div class="container">
         <h2>Publications</h2>
         <div class="publication">
-          <img src="ieee.png" alt="IEEE Xplore">
+          <img src="ieee.png" alt="IEEE Xplore" class="ieee-logo">
           <p>H. Mehta, K. Sanghavi, G. Pawade, M. Konde, S. Singh, S. R., "Applications of Machine Learning in Detecting Unethical Sources of Raw Materials in Supply Chains in the Cosmetic Industry," 4th International Conference on Sustainable Expert Systems (ICSES 2024), Online, IEEE XPLORE COMPLIANT DOI: 10.1109/ICSES63445.2024.10763049, organized by Pokhara University, Lekhnath, Kaski, Nepal.</p>
         </div>
       </div>
@@ -227,6 +231,7 @@
       <div class="container">
         <h2>Contact Me</h2>
         <ul class="social-links">
+          <li><a href="mailto:mehtaheet5@gmail.com"><i class="fas fa-envelope"></i></a></li>
           <li><a href="https://github.com/Heet852003" target="_blank"><i class="fab fa-github"></i></a></li>
           <li><a href="https://www.linkedin.com/in/heet-mehta-41b862225/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         </ul>
@@ -241,6 +246,5 @@
   </footer>
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
   <script src="portfoliowe.js"></script>
-
 </body>
 </html>
