@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initBinaryRain() // Add this line
   initLoadingScreen()
   initScrollAnimations()
+  // Add this inside the DOMContentLoaded event listener, after other initializations
+  initCodingMascot()
 })
 
 // Mobile Menu Toggle
@@ -424,3 +426,292 @@ rainbowStyle.textContent = `
     }
 `
 document.head.appendChild(rainbowStyle)
+
+// Add this function after the other function definitions
+function initCodingMascot() {
+  const mascot = document.getElementById("codingMascot")
+  const speech = document.getElementById("mascotSpeech")
+  const particles = document.getElementById("codeParticles")
+
+  if (!mascot) return
+
+  const messages = [
+    "Hey there, coder! 👋",
+    "Nice portfolio! 💻",
+    "Keep coding! 🚀",
+    "console.log('Hi!') 📝",
+    "Ready to debug? 🐛",
+    "Code never sleeps! ⚡",
+    "function awesome() 🎯",
+    "Git commit -m 'Cool!' 📦",
+    "Drag me around! 🎯",
+    "I'm portable! 📱",
+    "New position! 📍",
+  ]
+
+  let messageIndex = 0
+  let isTyping = false
+  let isDragging = false
+  const dragOffset = { x: 0, y: 0 }
+
+  // Make mascot draggable
+  function initDragging() {
+    let startX, startY, initialX, initialY
+
+    // Mouse events
+    mascot.addEventListener("mousedown", startDrag)
+    document.addEventListener("mousemove", drag)
+    document.addEventListener("mouseup", endDrag)
+
+    // Touch events for mobile
+    mascot.addEventListener("touchstart", startDragTouch, { passive: false })
+    document.addEventListener("touchmove", dragTouch, { passive: false })
+    document.addEventListener("touchend", endDrag)
+
+    function startDrag(e) {
+      if (e.target.closest(".mascot-speech")) return // Don't drag when clicking speech bubble
+
+      isDragging = true
+      mascot.style.cursor = "grabbing"
+      mascot.style.zIndex = "9999"
+
+      const rect = mascot.getBoundingClientRect()
+      startX = e.clientX - rect.left
+      startY = e.clientY - rect.top
+
+      // Get current position
+      const computedStyle = window.getComputedStyle(mascot)
+      initialX = Number.parseInt(computedStyle.right) || 20
+      initialY = Number.parseInt(computedStyle.bottom) || 20
+
+      // Switch to absolute positioning
+      mascot.style.position = "fixed"
+      mascot.style.right = "auto"
+      mascot.style.bottom = "auto"
+      mascot.style.left = rect.left + "px"
+      mascot.style.top = rect.top + "px"
+
+      e.preventDefault()
+    }
+
+    function startDragTouch(e) {
+      if (e.target.closest(".mascot-speech")) return
+
+      const touch = e.touches[0]
+      const mouseEvent = new MouseEvent("mousedown", {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+      })
+      startDrag(mouseEvent)
+      e.preventDefault()
+    }
+
+    function drag(e) {
+      if (!isDragging) return
+
+      const newX = e.clientX - startX
+      const newY = e.clientY - startY
+
+      // Boundary checking
+      const maxX = window.innerWidth - mascot.offsetWidth
+      const maxY = window.innerHeight - mascot.offsetHeight
+
+      const boundedX = Math.max(0, Math.min(newX, maxX))
+      const boundedY = Math.max(0, Math.min(newY, maxY))
+
+      mascot.style.left = boundedX + "px"
+      mascot.style.top = boundedY + "px"
+
+      e.preventDefault()
+    }
+
+    function dragTouch(e) {
+      if (!isDragging) return
+
+      const touch = e.touches[0]
+      const mouseEvent = new MouseEvent("mousemove", {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+      })
+      drag(mouseEvent)
+      e.preventDefault()
+    }
+
+    function endDrag() {
+      if (!isDragging) return
+
+      isDragging = false
+      mascot.style.cursor = "pointer"
+      mascot.style.zIndex = "999"
+
+      // Show "New position!" message
+      speech.textContent = "New position! 📍"
+      setTimeout(() => {
+        speech.textContent = messages[messageIndex]
+      }, 2000)
+
+      // Save position to localStorage
+      const rect = mascot.getBoundingClientRect()
+      localStorage.setItem(
+        "mascotPosition",
+        JSON.stringify({
+          x: rect.left,
+          y: rect.top,
+        }),
+      )
+    }
+  }
+
+  // Load saved position
+  function loadSavedPosition() {
+    const savedPosition = localStorage.getItem("mascotPosition")
+    if (savedPosition) {
+      const { x, y } = JSON.parse(savedPosition)
+
+      // Ensure position is still valid (in case screen size changed)
+      const maxX = window.innerWidth - mascot.offsetWidth
+      const maxY = window.innerHeight - mascot.offsetHeight
+
+      const boundedX = Math.max(0, Math.min(x, maxX))
+      const boundedY = Math.max(0, Math.min(y, maxY))
+
+      mascot.style.position = "fixed"
+      mascot.style.right = "auto"
+      mascot.style.bottom = "auto"
+      mascot.style.left = boundedX + "px"
+      mascot.style.top = boundedY + "px"
+    }
+  }
+
+  // Initialize dragging
+  initDragging()
+
+  // Load saved position after a short delay
+  setTimeout(loadSavedPosition, 100)
+
+  // Change message on click (but not when dragging)
+  mascot.addEventListener("click", (e) => {
+    if (isDragging || isTyping) return
+
+    isTyping = true
+    messageIndex = (messageIndex + 1) % messages.length
+    speech.textContent = messages[messageIndex]
+
+    // Add bounce effect
+    mascot.style.transform = "scale(1.1)"
+    setTimeout(() => {
+      mascot.style.transform = "scale(1)"
+      isTyping = false
+    }, 200)
+
+    // Create code particles
+    createCodeParticles()
+  })
+
+  // Auto-change message every 15 seconds (increased from 10)
+  setInterval(() => {
+    if (!isTyping && !isDragging) {
+      messageIndex = (messageIndex + 1) % messages.length
+      speech.textContent = messages[messageIndex]
+    }
+  }, 15000)
+
+  // Create floating code particles
+  function createCodeParticles() {
+    const symbols = ["{}", "[]", "()", "=>", "++", "--", "&&", "||", "!=", "==="]
+
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const particle = document.createElement("div")
+        particle.className = "code-particle"
+        particle.textContent = symbols[Math.floor(Math.random() * symbols.length)]
+        particle.style.left = Math.random() * 100 + "px"
+        particle.style.animationDelay = Math.random() * 1 + "s"
+
+        particles.appendChild(particle)
+
+        // Remove particle after animation
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle)
+          }
+        }, 2000)
+      }, i * 100)
+    }
+  }
+
+  // Random particle generation
+  setInterval(() => {
+    if (Math.random() < 0.3 && !isDragging) {
+      // 30% chance every 3 seconds, but not while dragging
+      createCodeParticles()
+    }
+  }, 3000)
+
+  // Mascot follows mouse slightly when hovered (but not while dragging)
+  mascot.addEventListener("mouseenter", () => {
+    if (!isDragging) {
+      mascot.style.transform = "scale(1.05)"
+    }
+  })
+
+  mascot.addEventListener("mouseleave", () => {
+    if (!isDragging) {
+      mascot.style.transform = "scale(1)"
+    }
+  })
+
+  // Add keyboard interaction
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space" && e.ctrlKey) {
+      e.preventDefault()
+      if (!isDragging) {
+        mascot.click()
+      }
+    }
+
+    // Reset position with Ctrl+R
+    if (e.code === "KeyR" && e.ctrlKey && e.shiftKey) {
+      e.preventDefault()
+      localStorage.removeItem("mascotPosition")
+      mascot.style.position = "fixed"
+      mascot.style.right = "20px"
+      mascot.style.bottom = "20px"
+      mascot.style.left = "auto"
+      mascot.style.top = "auto"
+      speech.textContent = "Back to default! 🏠"
+      setTimeout(() => {
+        speech.textContent = messages[messageIndex]
+      }, 2000)
+    }
+  })
+
+  // Handle window resize
+  window.addEventListener("resize", () => {
+    if (mascot.style.position === "fixed" && mascot.style.left !== "auto") {
+      const rect = mascot.getBoundingClientRect()
+      const maxX = window.innerWidth - mascot.offsetWidth
+      const maxY = window.innerHeight - mascot.offsetHeight
+
+      const boundedX = Math.max(0, Math.min(rect.left, maxX))
+      const boundedY = Math.max(0, Math.min(rect.top, maxY))
+
+      mascot.style.left = boundedX + "px"
+      mascot.style.top = boundedY + "px"
+    }
+  })
+
+  // Add visual feedback for dragging
+  mascot.style.cursor = "pointer"
+  mascot.style.userSelect = "none"
+
+  // Add a subtle hint about dragging
+  setTimeout(() => {
+    if (!localStorage.getItem("mascotPosition")) {
+      speech.textContent = "Drag me around! 🎯"
+      setTimeout(() => {
+        speech.textContent = messages[0]
+      }, 3000)
+    }
+  }, 5000)
+}
