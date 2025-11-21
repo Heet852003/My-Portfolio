@@ -1,5 +1,7 @@
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize theme first to prevent flash
+  initTheme()
   // Initialize all functionality
   initMobileMenu()
   initScrollEffects()
@@ -13,6 +15,62 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add this inside the DOMContentLoaded event listener, after other initializations
   initCodingMascot()
 })
+
+// Theme Toggle Functionality
+function initTheme() {
+  const themeToggle = document.getElementById("themeToggle")
+  const body = document.body
+  const themeIcon = themeToggle.querySelector("i")
+  
+  // Check for saved theme preference or default to dark
+  const savedTheme = localStorage.getItem("theme") || "dark"
+  
+  // Apply saved theme and set appropriate icon (reversed: moon in light, sun in dark)
+  if (savedTheme === "light") {
+    body.classList.add("light-theme")
+    themeIcon.classList.remove("fa-sun")
+    themeIcon.classList.add("fa-moon")
+  } else {
+    body.classList.remove("light-theme")
+    themeIcon.classList.remove("fa-moon")
+    themeIcon.classList.add("fa-sun")
+  }
+  
+  // Toggle theme on button click (reversed icons: moon in light mode, sun in dark mode)
+  themeToggle.addEventListener("click", () => {
+    body.classList.toggle("light-theme")
+    
+    const isLight = body.classList.contains("light-theme")
+    
+    // Update icon based on theme (reversed)
+    if (isLight) {
+      themeIcon.classList.remove("fa-sun")
+      themeIcon.classList.add("fa-moon")
+      localStorage.setItem("theme", "light")
+    } else {
+      themeIcon.classList.remove("fa-moon")
+      themeIcon.classList.add("fa-sun")
+      localStorage.setItem("theme", "dark")
+    }
+    
+    // Update header background on scroll
+    const header = document.querySelector("header")
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    if (scrollTop > 100) {
+      if (isLight) {
+        header.style.background = "rgba(245, 245, 245, 0.98)"
+      } else {
+        header.style.background = "rgba(10, 10, 10, 0.98)"
+      }
+    } else {
+      if (isLight) {
+        header.style.background = "rgba(245, 245, 245, 0.95)"
+      } else {
+        header.style.background = "rgba(10, 10, 10, 0.95)"
+      }
+    }
+  })
+}
 
 // Mobile Menu Toggle
 function initMobileMenu() {
@@ -60,17 +118,19 @@ function initMobileMenu() {
 // Scroll Effects
 function initScrollEffects() {
   const header = document.querySelector("header")
+  const body = document.body
   let lastScrollTop = 0
 
   window.addEventListener("scroll", () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop
 
     // Header background opacity
+    const isLight = body.classList.contains("light-theme")
     if (scrollTop > 100) {
-      header.style.background = "rgba(10, 10, 10, 0.98)"
+      header.style.background = isLight ? "rgba(245, 245, 245, 0.98)" : "rgba(10, 10, 10, 0.98)"
       header.style.backdropFilter = "blur(20px)"
     } else {
-      header.style.background = "rgba(10, 10, 10, 0.95)"
+      header.style.background = isLight ? "rgba(245, 245, 245, 0.95)" : "rgba(10, 10, 10, 0.95)"
       header.style.backdropFilter = "blur(10px)"
     }
 
