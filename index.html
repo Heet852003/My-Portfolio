@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heet Mehta | Software Engineer</title>
+  <meta name="description" content="Heet Mehta, software engineer working across systems, data infrastructure, and machine learning. MS CS at NYU Tandon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" shape-rendering="crispEdges"><rect x="3" y="0" width="2" height="1" fill="%233F5E9E"/><rect x="2" y="1" width="4" height="1" fill="%233F5E9E"/><rect x="1" y="2" width="6" height="3" fill="%233F5E9E"/><rect x="0" y="3" width="1" height="1" fill="%233F5E9E"/><rect x="7" y="3" width="1" height="1" fill="%233F5E9E"/><rect x="2" y="5" width="4" height="1" fill="%233F5E9E"/><rect x="1" y="6" width="1" height="1" fill="%233F5E9E"/><rect x="6" y="6" width="1" height="1" fill="%233F5E9E"/><rect x="3" y="3" width="1" height="1" fill="%23F7F2E9"/></svg>' />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#home" data-nav="home" aria-label="Heet Mehta, home">
+        <svg class="brand-bug" viewBox="0 0 12 12" width="22" height="22" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="4" y="0" width="1" height="1"/><rect x="7" y="0" width="1" height="1"/>
+          <rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/>
+          <rect x="4" y="2" width="4" height="1"/>
+          <rect x="3" y="3" width="6" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="10" y="3" width="1" height="1"/>
+          <rect x="2" y="4" width="8" height="1"/>
+          <rect x="1" y="5" width="10" height="1"/><rect x="0" y="5" width="1" height="1" class="dim"/><rect x="11" y="5" width="1" height="1" class="dim"/>
+          <rect x="2" y="6" width="8" height="1"/>
+          <rect x="3" y="7" width="6" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="10" y="7" width="1" height="1"/>
+          <rect x="4" y="8" width="4" height="1"/>
+          <rect x="5" y="9" width="2" height="1"/>
+          <rect x="5" y="4" width="2" height="2" class="hole"/>
+        </svg>
+        <span>Heet Mehta</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#resume" data-nav="resume">Resume</a></li>
+        <li><a href="#experience" data-nav="experience">Experience</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#hackathons" data-nav="hackathons">Hackathons</a></li>
+        <li><a href="#publications" data-nav="publications">Publications</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HOME ================= -->
+    <section class="panel" id="panel-home" data-panel="home">
+      <div class="hero">
+        <div class="container">
+          <p class="eyebrow reveal">Software Engineer · Systems and Infrastructure</p>
+          <h1 class="hero-title reveal">Heet Mehta</h1>
+          <p class="hero-lede reveal">
+            I build software where systems engineering, data infrastructure,
+            and machine learning meet, from observability pipelines to
+            full stack products.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#projects" data-nav="projects">View work</a>
+            <a class="btn btn-ghost" href="#contact" data-nav="contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="pug-scene" aria-label="Two pixel art pugs, Max and Happy, playing">
+          <canvas id="pugCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="panel" id="panel-about" data-panel="about">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>About</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I'm an MS Computer Science student at NYU Tandon (GPA 3.83) with a
+              B.Tech in IT from VIT Vellore (GPA 9.14). I work across systems,
+              data infrastructure, and machine learning, with hands on experience
+              in distributed systems, real time processing, and full stack web apps.
+            </p>
+            <p>
+              My stack spans Python, C++, Java, Go, SQL, TypeScript, Kubernetes,
+              Docker, Kafka, Redis, and ClickHouse. I care about building things
+              that are scalable, measurable, and genuinely useful.
+            </p>
+            <div class="edu-cards">
+              <div class="edu-card">
+                <img src="assets/nyulogo.png" alt="NYU logo" loading="lazy" />
+                <div>
+                  <h3>New York University</h3>
+                  <p>MS Computer Science · GPA 3.83</p>
+                  <p class="mono dim">2025 to 2027</p>
+                </div>
+              </div>
+              <div class="edu-card">
+                <img src="assets/vitlogo.png" alt="VIT Vellore logo" loading="lazy" />
+                <div>
+                  <h3>VIT Vellore</h3>
+                  <p>B.Tech IT · GPA 9.14</p>
+                  <p class="mono dim">2021 to 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figure class="about-photo reveal">
+            <img src="assets/heet-photo.jpg" alt="Heet Mehta" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESUME ================= -->
+    <section class="panel" id="panel-resume" data-panel="resume">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Resume</h2>
+        <div class="resume-card reveal">
+          <div>
+            <h3>Heet Mehta, Resume</h3>
+            <p>Download my complete resume for the full picture of my experience and qualifications.</p>
+          </div>
+          <a class="btn btn-primary" href="assets/Heet-Mehta-Resume.pdf" download>Download resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="panel" id="panel-experience" data-panel="experience">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Experience</h2>
+        <div class="tile-list">
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/google.png" alt="Google logo" loading="lazy" onerror="this.outerHTML='<span class=&quot;tile-logo-letter mono&quot;>G</span>'" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Software Engineering Intern</span>
+                <span class="tile-org">Google (Intrinsic)</span>
+              </span>
+              <span class="tile-date mono dim">May 2025 to Aug 2025</span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <ul>
+                <li>Designed and built a real time benchmarking system in Go to evaluate scalable backend infrastructure for a production robot fleet, comparing Prometheus, VictoriaMetrics, Thanos, and Mimir under loads exceeding 782k time series.</li>
+                <li>Engineered a containerized load generator with Bazel, deployed on Kubernetes with Helm, producing reproducible results across all configurations.</li>
+                <li>Delivered a structured technical report whose findings directly informed an infrastructure migration decision.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/nyu-secure-systems.png" alt="NYU Secure Systems Lab logo" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Software Engineering Member</span>
+                <span class="tile-org">NYU Secure Systems Lab</span>
+              </span>
+              <span class="tile-date mono dim">Sep 2025 to Present</span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <ul>
+                <li>Contributing to open source secure systems research and tooling.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/barc.png" alt="BARC logo" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Project Intern</span>
+                <span class="tile-org">Bhabha Atomic Research Centre</span>
+              </span>
+              <span class="tile-date mono dim">Dec 2024 to May 2025</span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <ul>
+                <li>Applied numerical computing in Python to fuse noisy sensor data from 500+ IoT devices using RSSI based trilateration and Kalman filtering, achieving 1 meter indoor positioning accuracy under real world interference.</li>
+                <li>Built multithreaded real time data pipelines and automated simulation scripts, reducing evaluation time by 30% while maintaining correctness of statistical estimates.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/encardio.png" alt="Encardio Rite logo" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Software Development Intern</span>
+                <span class="tile-org">Encardio Rite</span>
+              </span>
+              <span class="tile-date mono dim">May 2024 to Aug 2024</span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <ul>
+                <li>Built an ML powered diagnostics system in Python using Scikit-learn on AWS Lambda, applying statistical anomaly detection across sensor streams from 20+ installations and reducing critical failures by 40%.</li>
+                <li>Designed scalable data ingestion pipelines integrating multi source sensor data via MQTT and AWS IoT Core, improving fault detection accuracy by 20%.</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="panel" id="panel-projects" data-panel="projects">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Selected work</h2>
+        <div class="tile-list">
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/logo.svg" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">SentryFlow</span>
+                <span class="tile-org">Real time API monitoring and management system</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>A comprehensive system for tracking, analyzing, and optimizing API usage: API key management with fine grained permissions, sliding window and token bucket rate limiting, real time metrics and error rates, per user analytics, full request logging, an interactive dashboard, and threshold alerts.</p>
+              <p>Three components: a FastAPI backend for auth, rate limiting, and logging; a Kafka consumer that aggregates metrics into ClickHouse; and a React dashboard for visualization.</p>
+              <ul class="tags mono"><li>Python</li><li>FastAPI</li><li>Redis</li><li>Kafka</li><li>ClickHouse</li><li>React</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/SentryFlow" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/insightboard.svg" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">InsightBoard</span>
+                <span class="tile-org">Product telemetry with custom dashboards</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Mixpanel style product telemetry tool with a custom dashboard builder and funnel analysis views.</p>
+              <ul class="tags mono"><li>React</li><li>Zustand</li><li>PostgreSQL</li><li>ClickHouse</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/InsightBoard" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/EthAuclogo.svg" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">EthAuction</span>
+                <span class="tile-org">Auction platform on Ethereum</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Auction platform on the Ethereum blockchain where users browse, bid, and transact on goods through encrypted exchanges backed by smart contracts.</p>
+              <ul class="tags mono"><li>Solidity</li><li>Web3.js</li><li>Ethereum</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/EtherAuction" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/logo.png" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Diabetic Retinopathy Detection</span>
+                <span class="tile-org">ML powered retinal image analysis</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Streamlit web app that analyzes uploaded retinal images with a pretrained ML model, a 25% accuracy improvement over baseline.</p>
+              <ul class="tags mono"><li>Python</li><li>Streamlit</li><li>Scikit-learn</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/diabetic-retinopathy-detection" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/flavour_quest_logo.png" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Flavour Quest</span>
+                <span class="tile-org">Recipe search with ingredient filtering</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Full stack recipe search application with ingredient based filtering.</p>
+              <ul class="tags mono"><li>React</li><li>Node.js</li><li>Express</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo tile-emoji" aria-hidden="true">🤖</span>
+              <span class="tile-head">
+                <span class="tile-title">Titan ML Pipeline</span>
+                <span class="tile-org">End to end ML pipeline</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>End to end ML pipeline with a 45% reduction in model training time through optimized data processing.</p>
+              <ul class="tags mono"><li>Python</li><li>Apache Airflow</li><li>Docker</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HACKATHONS ================= -->
+    <section class="panel" id="panel-hackathons" data-panel="hackathons">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Hackathons</h2>
+        <div class="tile-list">
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-head">
+                <span class="tile-title">Eco-Nexus</span>
+                <span class="tile-org">Multi agent decision system</span>
+              </span>
+              <span class="hack-badges mono">
+                <span class="badge badge-win">3rd place</span>
+                <span class="badge">HackNYU 2026</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Agentic AI engine with explainable multi variable scoring across 30+ inputs, improving decision accuracy by 25%. Designed for real time state sync via Socket.io supporting 50+ concurrent sessions. Awarded 3rd place at HackNYU 2026.</p>
+              <ul class="tags mono"><li>Python</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>Snowflake</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PUBLICATIONS & LEADERSHIP ================= -->
+    <section class="panel" id="panel-publications" data-panel="publications">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Publications and leadership</h2>
+        <div class="tile-list">
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-logo"><img src="assets/ieee.png" alt="IEEE logo" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">IEEE Publication</span>
+                <span class="tile-org">ICSES 2024</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Applications of Machine Learning in Detecting Unethical Sources of Raw Materials in Supply Chains in the Cosmetic Industry.</p>
+              <p class="mono dim">DOI: 10.1109/ICSES63445.2024.10763049</p>
+            </div>
+          </details>
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-head">
+                <span class="tile-title">Volunteer Web Developer</span>
+                <span class="tile-org">Catchafire</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Led a pro bono website redesign supporting workforce reintegration programs, improving navigation and accessibility for community impact.</p>
+            </div>
+          </details>
+          <details class="tile reveal">
+            <summary>
+              <span class="tile-head">
+                <span class="tile-title">Technical Team Lead</span>
+                <span class="tile-org">VIT Robotics Club</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>Mentored 8 members across software and analytical projects and organized 5 technical workshops on algorithms and engineering fundamentals.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="panel" id="panel-contact" data-panel="contact">
+      <div class="container section">
+        <h2 class="section-title reveal"><span class="tick"></span>Let's connect</h2>
+        <p class="contact-lede reveal">I'm currently open to new opportunities and collaborations.</p>
+        <div class="contact-links reveal">
+          <a class="btn btn-primary" href="mailto:mehtaheet5@gmail.com">mehtaheet5@gmail.com</a>
+          <a class="btn btn-ghost" href="https://github.com/Heet852003" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/heet-mehta-41b862225/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container mono dim">© 2026 Heet Mehta</div>
+  </footer>
+
+  <script src="js/pugs.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
