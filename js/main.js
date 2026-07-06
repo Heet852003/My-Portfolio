@@ -29,8 +29,9 @@
     runReveals(active);
     window.scrollTo({ top: 0, behavior: "auto" });
     if (push && location.hash !== `#${name}`) history.pushState(null, "", `#${name}`);
-    // let the pug canvas resize once its panel is visible
+    // let canvases size themselves once their panel is visible
     if (name === "home" && window.pugResize) requestAnimationFrame(window.pugResize);
+    if (name === "contact" && window.catResize) requestAnimationFrame(window.catResize);
   }
 
   document.addEventListener("click", (e) => {
