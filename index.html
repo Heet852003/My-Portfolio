@@ -215,6 +215,31 @@
 
           <details class="tile reveal">
             <summary>
+              <span class="tile-logo"><img src="assets/aegis-logo.svg" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Aegis</span>
+                <span class="tile-org">Self-hosted distributed job queue and DAG workflow orchestration engine</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>A self-hosted alternative to Celery/Sidekiq/Temporal: a Go scheduling engine with a DAG workflow orchestrator, real-time React dashboard, and Go + Python worker SDKs, deployable as a single binary or via Docker.</p>
+              <p>Aegis lets developers submit background jobs and multi-step pipelines (defined as a DAG in YAML/JSON) to a central server that distributes them to worker processes over a WebSocket protocol I designed. It handles the hard parts of a production job queue: jobs are leased to workers with a timeout so a crashed worker's job automatically gets reassigned; failed jobs retry with exponential backoff and jitter before landing in a dead-letter queue; workflow steps advance reactively (via an internal event bus) the instant their dependencies succeed, supporting fan-out/fan-in graphs rather than just linear chains. It runs as a single compiled binary with an embedded web dashboard, supports either embedded SQLite (zero config) or PostgreSQL (for multi-node deployments), and uses Postgres advisory locks for leader election so multiple server replicas can fail over automatically.</p>
+              <ul>
+                <li>Distributed job queue with priorities, retries with exponential backoff + jitter, and a dead-letter queue</li>
+                <li>DAG-based workflow engine with cycle detection and automatic fan-out/fan-in advancement</li>
+                <li>Real-time dashboard: live job table, DAG visualizer, throughput/latency charts, worker monitor</li>
+                <li>Polyglot worker SDKs (Go and Python) speaking a shared WebSocket dispatch protocol</li>
+                <li>Leader election (Postgres advisory locks) for multi-node high availability</li>
+                <li>Single-binary deployment via Go's <code>embed</code>, plus Docker/Docker Compose for one-command setup</li>
+              </ul>
+              <ul class="tags mono"><li>Go</li><li>TypeScript</li><li>React</li><li>PostgreSQL</li><li>SQLite</li><li>WebSocket</li><li>Docker</li><li>Python</li><li>Tailwind CSS</li><li>GitHub Actions</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/aegis" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
               <span class="tile-logo"><img src="assets/logo.svg" alt="" loading="lazy" /></span>
               <span class="tile-head">
                 <span class="tile-title">SentryFlow</span>
