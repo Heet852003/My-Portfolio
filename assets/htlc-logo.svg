@@ -1,0 +1,24 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="htlcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="112" fill="#0b2e2b" stroke="#134e4a" stroke-width="4"/>
+  <circle cx="128" cy="128" r="88" fill="none" stroke="#134e4a" stroke-width="3" opacity="0.4"/>
+
+  <path d="M70,100 A58,58 0 0,1 175,80" fill="none" stroke="url(#htlcGrad)" stroke-width="7" stroke-linecap="round"/>
+  <polygon points="175,80 160,68 168,92" fill="url(#htlcGrad)"/>
+
+  <path d="M186,156 A58,58 0 0,1 81,176" fill="none" stroke="url(#htlcGrad)" stroke-width="7" stroke-linecap="round"/>
+  <polygon points="81,176 96,188 88,164" fill="url(#htlcGrad)"/>
+
+  <rect x="104" y="112" width="48" height="38" rx="6" fill="url(#htlcGrad)"/>
+  <path d="M113,112 L113,98 A15,15 0 0,1 143,98 L143,112" fill="none" stroke="url(#htlcGrad)" stroke-width="7"/>
+  <circle cx="128" cy="128" r="6" fill="#0b2e2b"/>
+  <rect x="125" y="128" width="6" height="12" fill="#0b2e2b"/>
+
+  <circle cx="128" cy="128" r="106" fill="none" stroke="#ccfbf1" stroke-width="2" opacity="0.2"/>
+</svg>
