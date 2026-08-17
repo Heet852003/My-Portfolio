@@ -1,0 +1,29 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="ethGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="112" fill="url(#vaultGrad)" stroke="#0f2557" stroke-width="4"/>
+  <circle cx="128" cy="128" r="88" fill="none" stroke="#0f2557" stroke-width="3" opacity="0.35"/>
+
+  <g stroke="#0f2557" stroke-width="3" opacity="0.5">
+    <line x1="128" y1="40" x2="128" y2="58"/>
+    <line x1="128" y1="198" x2="128" y2="216"/>
+    <line x1="40" y1="128" x2="58" y2="128"/>
+    <line x1="198" y1="128" x2="216" y2="128"/>
+  </g>
+
+  <polygon points="128,58 176,128 128,158 80,128" fill="url(#ethGrad)" stroke="#1e3a8a" stroke-width="3"/>
+  <polygon points="128,58 176,128 128,105" fill="#a5b4fc" opacity="0.7"/>
+  <polygon points="128,168 176,138 128,198 80,138" fill="url(#ethGrad)" stroke="#1e3a8a" stroke-width="3"/>
+  <polygon points="128,198 176,138 128,175" fill="#a5b4fc" opacity="0.7"/>
+
+  <circle cx="128" cy="128" r="106" fill="none" stroke="#f0f4ff" stroke-width="2" opacity="0.25"/>
+</svg>
