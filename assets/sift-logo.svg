@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="16" y="16" width="224" height="224" rx="48" fill="url(#bgGrad)" stroke="#083d38" stroke-width="4"/>
+
+  <g fill="#083d38" opacity="0.55">
+    <circle cx="60" cy="60" r="6"/>
+    <circle cx="90" cy="60" r="6"/>
+    <circle cx="60" cy="90" r="6"/>
+    <circle cx="196" cy="60" r="6"/>
+    <circle cx="196" cy="196" r="6"/>
+    <circle cx="60" cy="196" r="6"/>
+    <circle cx="60" cy="166" r="6"/>
+    <circle cx="166" cy="196" r="6"/>
+  </g>
+
+  <circle cx="112" cy="112" r="46" fill="none" stroke="#083d38" stroke-width="12"/>
+  <circle cx="112" cy="112" r="46" fill="url(#glassGrad)" opacity="0.15"/>
+  <line x1="145" y1="145" x2="192" y2="192" stroke="#083d38" stroke-width="16" stroke-linecap="round"/>
+
+  <g fill="#0f766e">
+    <circle cx="98" cy="100" r="5"/>
+    <circle cx="118" cy="100" r="5"/>
+    <circle cx="98" cy="120" r="5"/>
+    <circle cx="128" cy="120" r="5"/>
+  </g>
+</svg>
