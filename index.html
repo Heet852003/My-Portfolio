@@ -240,6 +240,31 @@
 
           <details class="tile reveal">
             <summary>
+              <span class="tile-logo"><img src="assets/sift-logo.svg" alt="" loading="lazy" /></span>
+              <span class="tile-head">
+                <span class="tile-title">Sift</span>
+                <span class="tile-org">Self-hosted, multi-repository code search engine</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </summary>
+            <div class="tile-body">
+              <p>A from-scratch code search engine built on a hand-rolled trigram index (the technique behind Google Code Search and Zoekt) and per-language symbol extraction, so searches rank actual definitions above incidental text matches, across any number of repositories at once.</p>
+              <p>Search patterns are parsed into an AST via Go's regexp/syntax package, reduced to a boolean AND/OR expression over which 3-byte sequences must appear in any matching string, and evaluated against posting lists to get a small candidate file set before running the real regex engine, an approach fuzz-tested to prove it never excludes a true match. On top of that, Sift extracts function, method, class, and type definitions per file, using real AST parsing for Go and heuristic extraction for a dozen other languages, so a search for a function name ranks its actual definition above every file that merely mentions it. Repositories are incrementally re-indexed by diffing git commits directly rather than rescanning everything, the trigram index persists in a hand-built, delta-varint-encoded binary format for fast reloads, and the whole system ships as a single Go binary with an embedded React dashboard.</p>
+              <ul>
+                <li>Trigram index with regex-to-trigram query derivation, fuzz-tested against the invariant that it never produces a false negative</li>
+                <li>Real AST-based symbol extraction for Go plus heuristic extraction for 11 other languages, powering definition-aware ranking</li>
+                <li>Incremental re-indexing via git diff between commits, not full rescans</li>
+                <li>Hand-built binary index format with delta-varint posting list compression</li>
+                <li>Real-time dashboard: instant search, live indexing status over WebSocket, full-file viewer</li>
+                <li>Single-binary deployment via Go's <code>embed</code>, plus Docker for one-command setup</li>
+              </ul>
+              <ul class="tags mono"><li>Go</li><li>TypeScript</li><li>React</li><li>SQLite</li><li>WebSocket</li><li>Docker</li><li>Tailwind CSS</li><li>GitHub Actions</li></ul>
+              <a class="tile-link" href="https://github.com/Heet852003/sift" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </details>
+
+          <details class="tile reveal">
+            <summary>
               <span class="tile-logo"><img src="assets/logo.svg" alt="" loading="lazy" /></span>
               <span class="tile-head">
                 <span class="tile-title">SentryFlow</span>
