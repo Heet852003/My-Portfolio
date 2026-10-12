@@ -218,22 +218,22 @@
               <span class="tile-logo"><img src="assets/kiln-logo.svg" alt="" loading="lazy" /></span>
               <span class="tile-head">
                 <span class="tile-title">Kiln</span>
-                <span class="tile-org">LLM agent that writes NKI kernels for AWS Trainium · Built at NYU × Annapurna Labs: Hack-the-Chip 2026</span>
+                <span class="tile-org">LLM agent for 3-engine pipelined AWS Trainium kernels · Built at NYU × Annapurna Labs: Hack-the-Chip 2026</span>
               </span>
               <span class="chev" aria-hidden="true"></span>
             </summary>
             <div class="tile-body">
-              <p>An agent loop around a small model (Qwen3-8B, served with vLLM on a single Trainium seat) that generates NKI kernels, simulates and grades each one, turns the failure into a line-level fix, and feeds it back until the kernel passes. Built as part of the NYU × Annapurna Labs: Hack-the-Chip 2026 hackathon.</p>
-              <p>The workshop shipped a seven-level kernel ladder, from average pooling and transpose up to M, N and K blocked matmuls graded on HBM traffic, as an unsolved problem: the baseline agent solved 4 of 20 runs on levels 1–4 and never attempted levels 5–7. Kiln solves all seven levels in 5 of 5 runs on the first round. The grader was hardened to catch kernels the CPU simulator wrongly passed (uncounted DMAs, SBUF overflows, transposed PSUM tiles, matmul accumulation errors) and to report HBM reads per operand. Feedback reads the live tiles at the failing line and writes one concrete change in the model's own variable names, and the search loop detects echoed repairs, breaks ties by progress, and splits samples between repairs and fresh attempts. On the optimisation levels, strategy written as code skeletons solved every run where prose hints passed 0 of 18 samples.</p>
+              <p>An agent loop that drives a small model (Qwen3-8B, served with vLLM on the Trainium seat itself) to write a kernel overlapping all three NeuronCore engines (DMA, Vector and Tensor) with SBUF triple-buffering, then grades each candidate and repairs it block by block. Built with Shashwat Shah and Tanay Dave as part of the NYU × Annapurna Labs: Hack-the-Chip 2026 hackathon.</p>
+              <p>A naive kernel runs the engines back to back, leaving two of the three idle on every block. Pipelining fixes that, but its bugs (a DMA overwriting a buffer the Tensor engine is still reading, a prologue that skips block 0, a tail block running past a prime-sized edge) run cleanly and return wrong numbers. When a candidate fails, the grader finds the first bad block, re-runs it alone, and classifies the failure as a sync, ragged-edge, uncomputed-block or algorithmic hazard. Each class maps to a targeted prompt patch instead of a generic retry. On the live run the agent went from a 0.30 kernel to a perfect 1.00 in one repair round (61.5 s, 2,460 tokens). The winning kernel matches NumPy exactly, and under the engine-latency model it removes steady-state idle time and runs up to 2.26× faster.</p>
               <ul>
-                <li>All 7 levels solved in 5/5 runs, up from 4/20 runs on levels 1–4 and none attempted on levels 5–7</li>
-                <li>Optimised matmuls at 1.14×, 1.00× and 1.00× the HBM byte floor on the largest shape</li>
-                <li>Hardened grader: DMA counting, SBUF capacity check, <code>nc_matmul</code> shape contract, per-operand HBM traffic</li>
-                <li>Line-level repair feedback built from the failing line's live tiles</li>
-                <li>Echo detection, progress-aware tie-breaking and mixed repair/fresh sampling in the search loop</li>
-                <li>Reference kernels for every level, including new ones for the blocked matmul levels</li>
+                <li>Closed-loop agent: Qwen3-8B on Trainium, token-budgeted prompts and a round-by-round attempt ledger</li>
+                <li>Block-n isolation diagnostic classifying pipeline sync, ragged-edge, uncomputed-block and algorithmic hazards</li>
+                <li>AST rule verifier and 7 hostile test cases (prime row counts, sub-tile inputs, 10⁴-scale values, zeros, negatives)</li>
+                <li>3-stage pipeline (prologue prefetch, DMA ∥ Vector ∥ Tensor steady state, epilogue drain): 66.7% → 0% steady-state idle time</li>
+                <li>Modeled speedups of 1.76×, 2.07× and 2.26× on 4, 8 and 16 blocks with 0.00e+00 numerical error</li>
+                <li>Live console with a Gantt simulator, agent trajectory view and SSE-streamed terminal</li>
               </ul>
-              <ul class="tags mono"><li>Python</li><li>AWS Trainium</li><li>NKI</li><li>vLLM</li><li>Qwen3-8B</li><li>Kubernetes</li><li>LLM agents</li></ul>
+              <ul class="tags mono"><li>Python</li><li>AWS Trainium</li><li>NKI</li><li>vLLM</li><li>Qwen3-8B</li><li>NumPy</li><li>LLM agents</li></ul>
               <a class="tile-link" href="https://github.com/Heet852003/kiln" target="_blank" rel="noopener">View on GitHub ↗</a>
             </div>
           </details>
@@ -415,7 +415,7 @@
               <span class="tile-logo"><img src="assets/annapurna-labs.png" alt="Annapurna Labs logo" loading="lazy" onerror="this.outerHTML='<span class=&quot;tile-logo-letter mono&quot;>AL</span>'" /></span>
               <span class="tile-head">
                 <span class="tile-title">Kiln</span>
-                <span class="tile-org">LLM agent that writes NKI kernels for AWS Trainium</span>
+                <span class="tile-org">LLM agent for 3-engine pipelined AWS Trainium kernels</span>
               </span>
               <span class="hack-badges mono">
                 <span class="badge">Hack-the-Chip 2026</span>
@@ -423,8 +423,8 @@
               <span class="chev" aria-hidden="true"></span>
             </summary>
             <div class="tile-body">
-              <p>Built at NYU × Annapurna Labs: Hack-the-Chip 2026. Took a small model (Qwen3-8B on one Trainium seat) from 4 of 20 solved runs to every level of a seven-level NKI kernel ladder solved in 5 of 5 runs, with the optimised matmuls at 1.00× the HBM byte floor. Hardened the grader, rewrote the repair feedback to name the failing line and the fix, and replaced prose hints with code skeletons.</p>
-              <ul class="tags mono"><li>Python</li><li>AWS Trainium</li><li>NKI</li><li>vLLM</li><li>LLM agents</li></ul>
+              <p>Built at NYU × Annapurna Labs: Hack-the-Chip 2026 with Shashwat Shah and Tanay Dave. An agent loop that has Qwen3-8B, running on the Trainium seat, write a kernel overlapping the DMA, Vector and Tensor engines, then repairs it with a block-level hazard diagnostic. It went from 0.30 to a perfect 1.00 in one repair round, with an exact numerical match and up to a 2.26× modeled speedup.</p>
+              <ul class="tags mono"><li>Python</li><li>AWS Trainium</li><li>NKI</li><li>vLLM</li><li>NumPy</li><li>LLM agents</li></ul>
               <a class="tile-link" href="https://github.com/Heet852003/kiln" target="_blank" rel="noopener">View on GitHub ↗</a>
             </div>
           </details>
